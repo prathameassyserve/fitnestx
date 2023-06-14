@@ -1,3 +1,6 @@
+import 'package:fitnestx/common/color_extension.dart';
+import 'package:fitnestx/routes.dart';
+import 'package:fitnestx/view/on_boarding/started_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,24 +15,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Fitnest X',
-      home: MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text("hello world -- hello"),
+      theme: ThemeData(
+        primaryColor: TColor.primaryColor1,
+        fontFamily: "Poppins",
       ),
+      initialRoute: ScreenName.splashScreenView,
+      routes: routes,
+      //home: const StartedView(),
     );
   }
 }

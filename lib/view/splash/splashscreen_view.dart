@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:fitnestx/common/color_extension.dart';
 import 'package:fitnestx/generated/assets.dart';
+import 'package:fitnestx/prefs/app_db.dart';
 import 'package:fitnestx/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,13 @@ class _SplashScreenViewState extends State<SplashScreenView> {
 
   void handler() async {
     Timer(const Duration(seconds: 2), () {
-      Navigator.popAndPushNamed(context, ScreenName.onStartedView);
+      if (appDB.isOnBoarding) {
+        Navigator.popAndPushNamed(context, ScreenName.signUpView);
+      } else if (appDB.isStarted) {
+        Navigator.popAndPushNamed(context, ScreenName.onBoardingView);
+      } else {
+        Navigator.popAndPushNamed(context, ScreenName.onStartedView);
+      }
     });
   }
 

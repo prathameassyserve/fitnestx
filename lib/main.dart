@@ -1,9 +1,15 @@
 import 'package:fitnestx/common/color_extension.dart';
+import 'package:fitnestx/locators.dart';
+import 'package:fitnestx/prefs/app_db.dart';
 import 'package:fitnestx/routes.dart';
-import 'package:fitnestx/view/on_boarding/started_view.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  await setupLocator();
+  await locator.isReady<AppDB>();
   runApp(const MyApp());
 }
 

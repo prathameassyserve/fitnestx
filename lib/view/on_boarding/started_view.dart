@@ -1,6 +1,7 @@
 import 'package:fitnestx/common/color_extension.dart';
 import 'package:fitnestx/common/string_extension.dart';
 import 'package:fitnestx/common_widgets/round_button.dart';
+import 'package:fitnestx/prefs/app_db.dart';
 import 'package:fitnestx/routes.dart';
 import 'package:fitnestx/view/on_boarding/on_boarding_view.dart';
 import 'package:flutter/material.dart';
@@ -61,13 +62,8 @@ class _StartedViewState extends State<StartedView> {
                       : RoundButtonType.bgGradient,
                   onPressed: () {
                     if (isChangeColor) {
+                      appDB.isStarted = true;
                       Navigator.popAndPushNamed(context, ScreenName.onBoardingView);
-                      /*Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const OnBoardingView(),
-                        ),
-                      );*/
                     } else {
                       setState(() {
                         isChangeColor = true;

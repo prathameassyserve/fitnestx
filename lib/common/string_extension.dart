@@ -21,4 +21,8 @@ class TString {
   static String hintEmail = "Email";
   static String hintPassword = "Password";
   static String labelTermsCondition = "By continuing you accept our Privacy Policy and\nTerm of Use";
+  static String labelRegister = "Register";
+  static String labelOr = "  Or  ";
+  static String labelAlreadyHaveAnAccount = "Already have an account? ";
+  static String labelLogin = "Login";
 }

@@ -10,7 +10,7 @@ class RoundButton extends StatelessWidget {
   const RoundButton({
     super.key,
     required this.buttonName,
-    this.type = RoundButtonType.textGradient,
+    this.type = RoundButtonType.bgGradient,
     this.fontSizeDynamic = 16.0,
     this.fontWeight = FontWeight.w700,
     required this.onPressed,
@@ -52,7 +52,7 @@ class RoundButton extends StatelessWidget {
         color: checkTheTypeIsGradient() ? Colors.transparent : TColor.white,
         child: checkTheTypeIsGradient()
             ? Text(
-                TString.buttonGetStarted,
+                buttonName,
                 style: TextStyle(
                     color: TColor.white,
                     fontSize: fontSizeDynamic,

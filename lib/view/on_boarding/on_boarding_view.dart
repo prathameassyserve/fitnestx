@@ -3,6 +3,7 @@ import 'package:fitnestx/common/item_collection.dart';
 import 'package:fitnestx/common/string_extension.dart';
 import 'package:fitnestx/common_widgets/on_boarding_page.dart';
 import 'package:fitnestx/generated/assets.dart';
+import 'package:fitnestx/prefs/app_db.dart';
 import 'package:fitnestx/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -73,8 +74,11 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         selectedPage++;
                         buildPageController();
                       } else {
+                        appDB.isOnBoarding = true;
                         Navigator.popAndPushNamed(
-                            context, ScreenName.signUpView);
+                          context,
+                          ScreenName.signUpView,
+                        );
                       }
                     },
                     icon: Icon(

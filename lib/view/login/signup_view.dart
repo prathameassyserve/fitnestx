@@ -1,5 +1,6 @@
 import 'package:fitnestx/common/color_extension.dart';
 import 'package:fitnestx/common/string_extension.dart';
+import 'package:fitnestx/common_widgets/round_button.dart';
 import 'package:fitnestx/common_widgets/round_textfield.dart';
 import 'package:fitnestx/common_widgets/textfeild_icon.dart';
 import 'package:fitnestx/generated/assets.dart';
@@ -39,31 +40,23 @@ class _SignUpViewState extends State<SignUpView> {
                       fontSize: 20,
                       fontWeight: FontWeight.w700),
                 ),
-                SizedBox(
-                  height: media.width * 0.05,
-                ),
+                SizedBox(height: media.width * 0.05),
                 RoundTextField(
                   hintText: TString.hintFirstName,
                   icon: Assets.imgUserText,
                 ),
-                SizedBox(
-                  height: media.width * 0.04,
-                ),
+                SizedBox(height: media.width * 0.04),
                 RoundTextField(
                   hintText: TString.hintLastName,
                   icon: Assets.imgUserText,
                 ),
-                SizedBox(
-                  height: media.width * 0.04,
-                ),
+                SizedBox(height: media.width * 0.04),
                 RoundTextField(
                   hintText: TString.hintEmail,
                   icon: Assets.imgEmail,
                   keyboardType: TextInputType.emailAddress,
                 ),
-                SizedBox(
-                  height: media.width * 0.04,
-                ),
+                SizedBox(height: media.width * 0.04),
                 RoundTextField(
                   hintText: TString.hintPassword,
                   icon: Assets.imgLock,
@@ -82,9 +75,7 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: media.width * 0.04,
-                ),
+                SizedBox(height: media.width * 0.04),
                 Row(
                   // crossAxisAlignment: CrossAxisAlignment.,
                   children: [
@@ -111,6 +102,107 @@ class _SignUpViewState extends State<SignUpView> {
                     )
                   ],
                 ),
+                SizedBox(height: media.width * 0.4),
+                RoundButton(
+                  buttonName: TString.labelRegister,
+                  onPressed: () {},
+                ),
+                SizedBox(height: media.width * 0.04),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: 1,
+                        color: TColor.gray.withOpacity(0.5),
+                      ),
+                    ),
+                    Text(
+                      TString.labelOr,
+                      style: TextStyle(
+                        color: TColor.black,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Expanded(
+                      child: Container(
+                        height: 1,
+                        color: TColor.gray.withOpacity(0.5),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: media.width * 0.04),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: TColor.white,
+                            border: Border.all(
+                              width: 1,
+                              color: TColor.gray.withOpacity(0.5),
+                            ),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Image.asset(
+                          Assets.imgGoogle,
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: media.width * 0.04),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 50,
+                        height: 50,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                            color: TColor.white,
+                            border: Border.all(
+                              width: 1,
+                              color: TColor.gray.withOpacity(0.5),
+                            ),
+                            borderRadius: BorderRadius.circular(15)),
+                        child: Image.asset(
+                          Assets.imgFacebook,
+                          width: 20,
+                          height: 20,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: media.width * 0.04),
+                TextButton(
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        TString.labelAlreadyHaveAnAccount,
+                        style: TextStyle(
+                          color: TColor.black,
+                          fontSize: 14,
+                        ),
+                      ),
+                      Text(
+                        TString.labelLogin,
+                        style: TextStyle(
+                          color: TColor.black,
+                          fontSize: 14,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: media.width * 0.04),
               ],
             ),
           ),

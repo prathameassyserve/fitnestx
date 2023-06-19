@@ -1,8 +1,6 @@
 import 'package:fitnestx/common/color_extension.dart';
 import 'package:fitnestx/common/item_collection.dart';
-import 'package:fitnestx/common/string_extension.dart';
 import 'package:fitnestx/common_widgets/on_boarding_page.dart';
-import 'package:fitnestx/generated/assets.dart';
 import 'package:fitnestx/prefs/app_db.dart';
 import 'package:fitnestx/routes.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +11,7 @@ class OnBoardingView extends StatefulWidget {
   @override
   State<OnBoardingView> createState() => _OnBoardingViewState();
 }
+
 
 class _OnBoardingViewState extends State<OnBoardingView> {
   int selectedPage = 0;

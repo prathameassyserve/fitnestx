@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:fitnestx/common/color_extension.dart';
 import 'package:fitnestx/common/string_extension.dart';
 import 'package:flutter/material.dart';
@@ -35,8 +33,8 @@ class RoundButton extends StatelessWidget {
               ? [
                   const BoxShadow(
                     color: Colors.black26,
-                    blurRadius: 2,
-                    offset: Offset(0, 2),
+                    blurRadius: 0.5,
+                    offset: Offset(0, 0.5),
                   )
                 ]
               : null),

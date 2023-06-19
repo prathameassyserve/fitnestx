@@ -22,6 +22,7 @@ class TString {
   static String hintPassword = "Password";
   static String labelTermsCondition = "By continuing you accept our Privacy Policy and\nTerm of Use";
   static String labelRegister = "Register";
+  static String labelNext = "Next >";
   static String labelOr = "  Or  ";
   static String labelAlreadyHaveAnAccount = "Already have an account? ";
   static String labelLogin = "Login";
@@ -29,5 +30,8 @@ class TString {
   static String labelItWillHelpUsToKnowMoreThenYou = "It will help us to know more then you!";
   static String hintDateOfBirth = "Date of Birth";
   static String hintYourWeight = "Your Weight";
+  static String hintYourHeight = "Your Height";
   static String labelKG = "KG";
+  static String labelCM = "CM";
+  static String labelYourGender = "Your Gender";
 }

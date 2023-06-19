@@ -25,4 +25,9 @@ class TString {
   static String labelOr = "  Or  ";
   static String labelAlreadyHaveAnAccount = "Already have an account? ";
   static String labelLogin = "Login";
+  static String labelLetsCompleteYourProfile = "Let's complete your profile";
+  static String labelItWillHelpUsToKnowMoreThenYou = "It will help us to know more then you!";
+  static String hintDateOfBirth = "Date of Birth";
+  static String hintYourWeight = "Your Weight";
+  static String labelKG = "KG";
 }

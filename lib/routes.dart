@@ -1,3 +1,4 @@
+import 'package:fitnestx/view/login/complete_profile_view.dart';
 import 'package:fitnestx/view/login/signup_view.dart';
 import 'package:fitnestx/view/on_boarding/on_boarding_view.dart';
 import 'package:fitnestx/view/on_boarding/started_view.dart';
@@ -9,6 +10,7 @@ final Map<String, WidgetBuilder> routes = {
   ScreenName.onBoardingView: (context) => const OnBoardingView(),
   ScreenName.onStartedView: (context) => const StartedView(),
   ScreenName.signUpView: (context) => const SignUpView(),
+  ScreenName.completeProfileView: (context) => const CompleteProfileView(),
 };
 
 final class ScreenName {
@@ -16,4 +18,5 @@ final class ScreenName {
   static String onBoardingView = "onBoardingView";
   static String onStartedView = "onStartedView";
   static String signUpView = "signUpView";
+  static String completeProfileView = "completeProfileView";
 }

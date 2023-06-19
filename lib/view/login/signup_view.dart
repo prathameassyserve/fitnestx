@@ -4,6 +4,7 @@ import 'package:fitnestx/common_widgets/round_button.dart';
 import 'package:fitnestx/common_widgets/round_textfield.dart';
 import 'package:fitnestx/common_widgets/textfeild_icon.dart';
 import 'package:fitnestx/generated/assets.dart';
+import 'package:fitnestx/routes.dart';
 import 'package:flutter/material.dart';
 
 class SignUpView extends StatefulWidget {
@@ -105,7 +106,12 @@ class _SignUpViewState extends State<SignUpView> {
                 SizedBox(height: media.width * 0.4),
                 RoundButton(
                   buttonName: TString.labelRegister,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      ScreenName.completeProfileView,
+                    );
+                  },
                 ),
                 SizedBox(height: media.width * 0.04),
                 Row(

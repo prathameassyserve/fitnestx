@@ -1,4 +1,5 @@
 import 'package:fitnestx/common/color_extension.dart';
+import 'package:fitnestx/common/item_collection.dart';
 import 'package:fitnestx/common/string_extension.dart';
 import 'package:fitnestx/common_widgets/round_button.dart';
 import 'package:fitnestx/common_widgets/round_textfield.dart';
@@ -15,10 +16,12 @@ class CompleteProfileView extends StatefulWidget {
 
 class _CompleteProfileViewState extends State<CompleteProfileView> {
   TextEditingController txtDate = TextEditingController();
+  TextEditingController txtGender = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
+    String selectedGender;
     return Scaffold(
       backgroundColor: TColor.white,
       body: SingleChildScrollView(
@@ -49,57 +52,45 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Column(
                     children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            color: TColor.lightGray,
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Row(
-                          children: [
-                            Container(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 15),
-                              alignment: Alignment.center,
-                              width: 50,
-                              height: 50,
-                              child: Image.asset(
-                                Assets.imgGender,
-                                width: 20,
-                                height: 20,
-                                fit: BoxFit.contain,
-                                color: TColor.gray,
-                              ),
-                            ),
-                            Expanded(
-                              child: DropdownButtonHideUnderline(
-                                child: DropdownButton(
-                                  items: ["Male", "Female"]
-                                      .map(
-                                        (name) => DropdownMenuItem(
-                                          value: name,
-                                          child: Text(
-                                            name,
-                                            style: TextStyle(
-                                              color: TColor.gray,
-                                              fontSize: 12,
-                                            ),
+                      RoundTextField(
+                        hintText: TString.labelYourGender,
+                        icon: Assets.imgGender,
+                        controller: txtGender,
+                        isClickable: false,
+                        onPressed: () {
+                          showModalBottomSheet(
+                              context: context,
+                              builder: (BuildContext context) {
+                                var genderData = ItemCollection.genderData;
+                                return Container(
+                                  padding:
+                                  const EdgeInsets.fromLTRB(10, 18, 10, 0),
+                                  height: 200,
+                                  color: TColor.primaryColor1,
+                                  child: ListView.builder(
+                                    itemCount: genderData.length,
+                                    itemBuilder: (context, index) {
+                                      return TextButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            txtGender.text = genderData[index];
+                                            Navigator.pop(context);
+                                          });
+                                        },
+                                        child: Text(
+                                          genderData[index],
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w700,
+                                            color: TColor.white,
                                           ),
                                         ),
-                                      )
-                                      .toList(),
-                                  isExpanded: true,
-                                  hint: Text(
-                                    TString.labelYourGender,
-                                    style: TextStyle(
-                                      color: TColor.gray,
-                                      fontSize: 12,
-                                    ),
+                                      );
+                                    },
                                   ),
-                                  onChanged: (value) {},
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
+                                );
+                              });
+                        },
                       ),
                       SizedBox(height: media.width * 0.04),
                       RoundTextField(
@@ -114,6 +105,7 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                             child: RoundTextField(
                               hintText: TString.hintYourWeight,
                               icon: Assets.imgWeight,
+                              keyboardType: TextInputType.number,
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -141,8 +133,9 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                         children: [
                           Expanded(
                             child: RoundTextField(
-                              hintText: TString.hintYourWeight,
+                              hintText: TString.hintYourHeight,
                               icon: Assets.imgHight,
+                              keyboardType: TextInputType.number,
                             ),
                           ),
                           const SizedBox(width: 8),
@@ -169,10 +162,7 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                       RoundButton(
                         buttonName: TString.labelNext,
                         onPressed: () {
-                          Navigator.pushNamed(
-                            context,
-                            ScreenName.completeProfileView,
-                          );
+
                         },
                       ),
                     ],

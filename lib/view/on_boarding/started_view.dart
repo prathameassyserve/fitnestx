@@ -18,7 +18,9 @@ class _StartedViewState extends State<StartedView> {
 
   @override
   Widget build(BuildContext context) {
+
     var media = MediaQuery.of(context).size;
+
     return Scaffold(
       backgroundColor: TColor.white,
       body: Container(

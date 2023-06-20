@@ -3,6 +3,8 @@ import 'package:fitnestx/generated/assets.dart';
 import 'package:fitnestx/pojo/on_boarding_data.dart';
 
 class ItemCollection {
+  static List<String> genderData = ["Male", "Female"];
+
   static List<OnBoardingData> onBoardingScreenData = [
     OnBoardingData(
       title: TString.labelTrackYourGoal1,

@@ -94,6 +94,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     );
   }
 
+
   void buildPageController() {
     pageController.animateToPage(
       selectedPage,

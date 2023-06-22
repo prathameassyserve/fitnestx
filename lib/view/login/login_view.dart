@@ -88,10 +88,7 @@ class _LoginViewState extends State<LoginView> {
                 RoundButton(
                   buttonName: TString.labelLogin,
                   onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      ScreenName.completeProfileView,
-                    );
+
                   },
                 ),
                 SizedBox(height: media.width * 0.04),

@@ -7,14 +7,14 @@ import 'package:fitnestx/generated/assets.dart';
 import 'package:fitnestx/routes.dart';
 import 'package:flutter/material.dart';
 
-class SignUpView extends StatefulWidget {
-  const SignUpView({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<SignUpView> createState() => _SignUpViewState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _SignUpViewState extends State<SignUpView> {
+class _LoginViewState extends State<LoginView> {
   bool isPasswordSecure = true;
   bool isCheck = false;
 
@@ -25,7 +25,8 @@ class _SignUpViewState extends State<SignUpView> {
       backgroundColor: TColor.white,
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Padding(
+          child: Container(
+            height: media.height * 0.9,
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,22 +36,13 @@ class _SignUpViewState extends State<SignUpView> {
                   style: TextStyle(color: TColor.gray, fontSize: 16),
                 ),
                 Text(
-                  TString.labelCreateAccount,
+                  TString.labelWelcomeBack,
                   style: TextStyle(
                       color: TColor.black,
                       fontSize: 20,
                       fontWeight: FontWeight.w700),
                 ),
                 SizedBox(height: media.width * 0.05),
-                RoundTextField(
-                  hintText: TString.hintFirstName,
-                  icon: Assets.imgUserText,
-                ),
-                SizedBox(height: media.width * 0.04),
-                RoundTextField(
-                  hintText: TString.hintLastName,
-                  icon: Assets.imgUserText,
-                ),
                 SizedBox(height: media.width * 0.04),
                 RoundTextField(
                   hintText: TString.hintEmail,
@@ -76,36 +68,25 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ),
                 ),
-                SizedBox(height: media.width * 0.04),
                 Row(
-                  // crossAxisAlignment: CrossAxisAlignment.,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    IconButton(
-                      onPressed: () {
-                        setState(() {
-                          isCheck = !isCheck;
-                        });
-                      },
-                      icon: Icon(
-                        isCheck
-                            ? Icons.check_box_outlined
-                            : Icons.check_box_outline_blank_outlined,
-                        color: TColor.gray,
-                        size: 20,
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        TString.labelForgotYourPassword,
+                        style: TextStyle(
+                          color: TColor.gray,
+                          fontSize: 10,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Text(
-                        TString.labelTermsCondition,
-                        style: TextStyle(color: TColor.gray, fontSize: 10),
-                      ),
-                    )
                   ],
                 ),
-                SizedBox(height: media.width * 0.4),
+                const Spacer(),
                 RoundButton(
-                  buttonName: TString.labelRegister,
+                  buttonName: TString.labelLogin,
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
@@ -187,20 +168,20 @@ class _SignUpViewState extends State<SignUpView> {
                 SizedBox(height: media.width * 0.04),
                 TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, ScreenName.loginView);
+                    Navigator.popAndPushNamed(context, ScreenName.signUpView);
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        TString.labelAlreadyHaveAnAccount,
+                        TString.labelDoNotHaveAccount,
                         style: TextStyle(
                           color: TColor.black,
                           fontSize: 14,
                         ),
                       ),
                       Text(
-                        TString.labelLogin,
+                        TString.buttonRegister,
                         style: TextStyle(
                           color: TColor.black,
                           fontSize: 14,

@@ -31,26 +31,6 @@ class RoundTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isClickable) {
-      return Container(
-        margin: margin,
-        decoration: BoxDecoration(
-            color: TColor.lightGray, borderRadius: BorderRadius.circular(15)),
-        child: TextField(
-          controller: controller,
-          keyboardType: keyboardType,
-          obscureText: obscureText,
-          decoration: InputDecoration(
-              contentPadding:
-                  const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-              enabledBorder: InputBorder.none,
-              focusedBorder: InputBorder.none,
-              hintText: hintText,
-              suffixIcon: rightIcon,
-              prefixIcon: TextFieldIcon(icon: icon),
-              hintStyle: TextStyle(color: TColor.gray, fontSize: 12)),
-        ),
-      );
-    } else {
       return InkWell(
           onTap: onPressed,
           child: Container(
@@ -75,6 +55,26 @@ class RoundTextField extends StatelessWidget {
               ),
             ),
           ));
+    } else {
+      return Container(
+        margin: margin,
+        decoration: BoxDecoration(
+            color: TColor.lightGray, borderRadius: BorderRadius.circular(15)),
+        child: TextField(
+          controller: controller,
+          keyboardType: keyboardType,
+          obscureText: obscureText,
+          decoration: InputDecoration(
+              contentPadding:
+              const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              enabledBorder: InputBorder.none,
+              focusedBorder: InputBorder.none,
+              hintText: hintText,
+              suffixIcon: rightIcon,
+              prefixIcon: TextFieldIcon(icon: icon),
+              hintStyle: TextStyle(color: TColor.gray, fontSize: 12)),
+        ),
+      );
     }
   }
 }

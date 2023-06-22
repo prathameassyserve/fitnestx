@@ -1,4 +1,5 @@
 import 'package:fitnestx/common/color_extension.dart';
+import 'package:fitnestx/common/extension.dart';
 import 'package:fitnestx/common/item_collection.dart';
 import 'package:fitnestx/common/string_extension.dart';
 import 'package:fitnestx/common_widgets/round_button.dart';
@@ -21,7 +22,6 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.of(context).size;
-    String selectedGender;
     return Scaffold(
       backgroundColor: TColor.white,
       body: SingleChildScrollView(
@@ -56,40 +56,17 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                         hintText: TString.labelYourGender,
                         icon: Assets.imgGender,
                         controller: txtGender,
-                        isClickable: false,
+                        isClickable: true,
                         onPressed: () {
-                          showModalBottomSheet(
-                              context: context,
-                              builder: (BuildContext context) {
-                                var genderData = ItemCollection.genderData;
-                                return Container(
-                                  padding:
-                                  const EdgeInsets.fromLTRB(10, 18, 10, 0),
-                                  height: 200,
-                                  color: TColor.primaryColor1,
-                                  child: ListView.builder(
-                                    itemCount: genderData.length,
-                                    itemBuilder: (context, index) {
-                                      return TextButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            txtGender.text = genderData[index];
-                                            Navigator.pop(context);
-                                          });
-                                        },
-                                        child: Text(
-                                          genderData[index],
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w700,
-                                            color: TColor.white,
-                                          ),
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                );
+                          Extension.showCommonBottom(
+                            context,
+                            ItemCollection.genderData,
+                            (String data) {
+                              setState(() {
+                                txtGender.text = data;
                               });
+                            },
+                          );
                         },
                       ),
                       SizedBox(height: media.width * 0.04),
@@ -97,6 +74,15 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                         hintText: TString.hintDateOfBirth,
                         icon: Assets.imgDate,
                         controller: txtDate,
+                        isClickable: true,
+                        onPressed: () {
+                          Extension.selectDate(context, (selectedDate) {
+                            txtDate.text = Extension.formatDate(
+                              Extension.DOBFormat,
+                              selectedDate!,
+                            );
+                          });
+                        },
                       ),
                       SizedBox(height: media.width * 0.04),
                       Row(
@@ -162,7 +148,10 @@ class _CompleteProfileViewState extends State<CompleteProfileView> {
                       RoundButton(
                         buttonName: TString.labelNext,
                         onPressed: () {
-
+                          Navigator.pushNamed(
+                            context,
+                            ScreenName.whatYourGoalView,
+                          );
                         },
                       ),
                     ],

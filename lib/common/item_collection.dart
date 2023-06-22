@@ -1,8 +1,24 @@
 import 'package:fitnestx/common/string_extension.dart';
 import 'package:fitnestx/generated/assets.dart';
+import 'package:fitnestx/pojo/goal_data.dart';
 import 'package:fitnestx/pojo/on_boarding_data.dart';
 
 class ItemCollection {
+  static List<GoalData> goalData = [
+    GoalData(
+        image: Assets.imgGoal1,
+        title: TString.labelWhatIsYourGoal,
+        titleSub: TString.labelWhatIsYourGoalSub),
+    GoalData(
+        image: Assets.imgGoal2,
+        title: TString.labelLeanTone,
+        titleSub: TString.labelLeanToneSub),
+    GoalData(
+        image: Assets.imgGoal3,
+        title: TString.labelLoseAFat,
+        titleSub: TString.labelLoseAFatSub),
+  ];
+
   static List<String> genderData = ["Male", "Female"];
 
   static List<OnBoardingData> onBoardingScreenData = [

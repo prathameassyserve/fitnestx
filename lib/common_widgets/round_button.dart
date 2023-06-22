@@ -23,6 +23,7 @@ class RoundButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
       decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: TColor.primaryG,

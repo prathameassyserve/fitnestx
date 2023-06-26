@@ -48,7 +48,10 @@ class _WelcomeViewState extends State<WelcomeView> {
               RoundButton(
                 buttonName: TString.buttonGoToHome,
                 onPressed: () {
-
+                  Navigator.popAndPushNamed(
+                    context,
+                    ScreenName.mainTabView,
+                  );
                 },
               ),
             ],

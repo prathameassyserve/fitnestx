@@ -3,6 +3,7 @@ import 'package:fitnestx/view/login/login_view.dart';
 import 'package:fitnestx/view/login/signup_view.dart';
 import 'package:fitnestx/view/login/welcome_view.dart';
 import 'package:fitnestx/view/login/what_your_goal_view.dart';
+import 'package:fitnestx/view/main_tab/main_tab_view.dart';
 import 'package:fitnestx/view/on_boarding/on_boarding_view.dart';
 import 'package:fitnestx/view/on_boarding/started_view.dart';
 import 'package:fitnestx/view/splash/splashscreen_view.dart';
@@ -17,6 +18,7 @@ final Map<String, WidgetBuilder> routes = {
   ScreenName.whatYourGoalView: (context) => const WhatYourGoalView(),
   ScreenName.welcomeView: (context) => const WelcomeView(),
   ScreenName.loginView: (context) => const LoginView(),
+  ScreenName.mainTabView: (context) => const MainTabView(),
 };
 
 final class ScreenName {
@@ -28,4 +30,5 @@ final class ScreenName {
   static String whatYourGoalView = "whatYourGoalView";
   static String welcomeView = "welcomeView";
   static String loginView = "loginView";
+  static String mainTabView = "mainTabView";
 }

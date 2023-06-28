@@ -2,7 +2,7 @@ import 'package:fitnestx/common/color_extension.dart';
 import 'package:fitnestx/common/string_extension.dart';
 import 'package:flutter/material.dart';
 
-enum RoundButtonType { bgGradient, textGradient }
+enum RoundButtonType { bgGradient, bgSGradient, textGradient }
 
 class RoundButton extends StatelessWidget {
   const RoundButton({
@@ -26,11 +26,13 @@ class RoundButton extends StatelessWidget {
       margin: const EdgeInsets.fromLTRB(0, 0, 0, 4),
       decoration: BoxDecoration(
           gradient: LinearGradient(
-              colors: TColor.primaryG,
+              colors: checkTheTypeIsSGradient()
+                  ? TColor.secondaryG
+                  : TColor.primaryG,
               begin: Alignment.centerLeft,
               end: Alignment.centerRight),
           borderRadius: BorderRadius.circular(25),
-          boxShadow: checkTheTypeIsGradient()
+          boxShadow: checkTheTypeIsGradient() || checkTheTypeIsSGradient()
               ? [
                   const BoxShadow(
                     color: Colors.black26,
@@ -47,9 +49,12 @@ class RoundButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
         ),
         textColor: TColor.primaryColor1,
-        elevation: checkTheTypeIsGradient() ? 0 : 1,
-        color: checkTheTypeIsGradient() ? Colors.transparent : TColor.white,
-        child: checkTheTypeIsGradient()
+        elevation:
+            checkTheTypeIsGradient() || checkTheTypeIsSGradient() ? 0 : 1,
+        color: checkTheTypeIsGradient() || checkTheTypeIsSGradient()
+            ? Colors.transparent
+            : TColor.white,
+        child: checkTheTypeIsGradient() || checkTheTypeIsSGradient()
             ? Text(
                 buttonName,
                 style: TextStyle(
@@ -80,4 +85,6 @@ class RoundButton extends StatelessWidget {
   }
 
   bool checkTheTypeIsGradient() => type == RoundButtonType.bgGradient;
+
+  bool checkTheTypeIsSGradient() => type == RoundButtonType.bgSGradient;
 }

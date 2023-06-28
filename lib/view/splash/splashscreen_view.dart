@@ -22,7 +22,9 @@ class _SplashScreenViewState extends State<SplashScreenView> {
 
   void handler() async {
     Timer(const Duration(seconds: 2), () {
-      if (appDB.isOnBoarding) {
+      if (appDB.isLogin) {
+        Navigator.popAndPushNamed(context, ScreenName.mainTabView);
+      } else if (appDB.isOnBoarding) {
         Navigator.popAndPushNamed(context, ScreenName.signUpView);
       } else if (appDB.isStarted) {
         Navigator.popAndPushNamed(context, ScreenName.onBoardingView);

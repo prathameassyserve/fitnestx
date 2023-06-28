@@ -1,6 +1,9 @@
 import 'package:fitnestx/common/color_extension.dart';
 import 'package:fitnestx/common_widgets/tab_button.dart';
 import 'package:fitnestx/generated/assets.dart';
+import 'package:fitnestx/prefs/app_db.dart';
+import 'package:fitnestx/view/home/blank_view.dart';
+import 'package:fitnestx/view/home/home_view.dart';
 import 'package:flutter/material.dart';
 
 class MainTabView extends StatefulWidget {
@@ -12,10 +15,14 @@ class MainTabView extends StatefulWidget {
 
 class _MainTabViewState extends State<MainTabView> {
   var selectedTab = 0;
+  final PageStorageBucket pageStorageBucket = PageStorageBucket();
+  Widget currentTab = const HomeView();
 
   @override
   Widget build(BuildContext context) {
+    appDB.isLogin = true;
     return Scaffold(
+      body: PageStorage(bucket: pageStorageBucket, child: currentTab),
       backgroundColor: TColor.white,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: SizedBox(
@@ -67,6 +74,7 @@ class _MainTabViewState extends State<MainTabView> {
                   isActive: selectedTab == 0,
                   onTap: () {
                     selectedTab = 0;
+                    currentTab = const HomeView();
                     if (mounted) {
                       setState(() {});
                     }
@@ -78,6 +86,7 @@ class _MainTabViewState extends State<MainTabView> {
                   isActive: selectedTab == 1,
                   onTap: () {
                     selectedTab = 1;
+                    currentTab = const BlankView();
                     if (mounted) {
                       setState(() {});
                     }
